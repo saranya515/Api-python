@@ -1,0 +1,1 @@
+# It is a basic api to query and update dynamo db using boto3 library.
