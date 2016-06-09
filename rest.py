@@ -40,7 +40,7 @@ class get_clicks:
               'qualifier': 'testing://c1sdk/p1sdk',
               'targetDay': date})  # Updating dynamodb table.
         logging.info('Table updated...')
-        return '{clickCount: '+ count + '}'
+        return '{clickCount: ' + count + '}'
 
 
 if __name__ == "__main__":
