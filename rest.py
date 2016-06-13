@@ -21,10 +21,12 @@ class get_clicks:
         """
         logging.info('------STARTING APPLICATION------')
         dynamodb = boto3.resource('dynamodb')
-        table_name = "prod1.ad-processor.banner-clicks-aggregation.date-shift.DainikBhaskar"
+        table_name = ("prod1.ad-processor."
+                      "banner-clicks-aggregation.date-shift.DainikBhaskar")
         table = dynamodb.Table(table_name)
         date = datetime.date.today().strftime("%Y-%m-%d")
-        logging.info('Querying table with qualifier: testing://c1sdk/p1sdk and date: ' + date)
+        logging.info('Querying table with qualifier:'
+                     ' testing://c1sdk/p1sdk and date: ' + date)
         result = table.get_item(
                        Key={
                         'qualifier': 'testing://c1sdk/p1sdk',
@@ -32,7 +34,7 @@ class get_clicks:
         count = result['Item']['clickCount']  # Retrieving current click count.
         val = str(count)
         logging.info('Current click count' + val)
-        count += 1
+        count += 1  # Increase click count by 1.
         logging.info('Updating table...')
         table.put_item(
             Item={
