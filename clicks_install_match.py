@@ -29,7 +29,7 @@ class ClickInstallMatching:
     """
 
     def match(self):
-        print("Matching start here.")
+        print('Matching start here.')
         app_id = 'com.ixigo'
         dynamodb_tables = DynamoDbResources()
         reg_prefix = dynamodb_tables.resource('table_names', 'reg')
@@ -47,7 +47,7 @@ class ClickInstallMatching:
         # Getting entry in registration table for device id.
         exact_param = dynamodb_tables.resource('conf', 'exact_window')
         if not registration['Items']:
-            print ("Not registered, carry on")
+            print ('Not registered, carry on')
             # Not registered yet
             clicks_prefix = dynamodb_tables.resource('table_names', 'clicks')
             clicks_name = clicks_prefix + app_id
@@ -70,9 +70,9 @@ class ClickInstallMatching:
                 installed_date_time)
             print (matching_items)
             if matching_items['Items']:
-                print ("Matches with exact window")
+                print ('Matches with exact window')
             else:
-                print ("No exact match, have to find fyzzy match")
+                print ('No exact match, have to find fyzzy match')
                 fuzzy_param = dynamodb_tables.resource('conf', 'fuzzy_window')
                 fuzzy_win_val = get_window_values(conf, fuzzy_param)
                 print (fuzzy_win_val)
@@ -84,10 +84,14 @@ class ClickInstallMatching:
                     'receivedAt',
                     fuzzy_date,
                     installed_date_time)
+                if matching_items['Items']:
+                    print ('Matches with fuzzy window')
+                else:
+                    print ('ORGANIC install')
 
             # exact_window_match = get_exact_window()
         else:
-            print ("Device already registered on " +
+            print ('Device already registered on ' +
                    registration['Items'][0]['registeredAtDay'])
             # print (registration)
 
