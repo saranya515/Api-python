@@ -14,19 +14,19 @@
     ip-address, user agent, installation date, device id. 
     Here all the details are hardcoded.
 1. check registration table for device id, 
-     if there device is already registered, skip entire process.
+     if there, device is already registered, skip entire process.
 2. else
-     generate fingerprint with user agent and ip address
-     fetch excat window match value in minutes from database, 
-     scan clcks table with date range, 
-        if there is an entry, found a matching click
+     generate fingerprint with user agent and ip address <br />
+     fetch excat window match value in minutes from database, <br />
+     scan clcks table with date range, <br />
+        if there is an entry, found a matching click <br />
         else go to next step
-3. startig fuzzy match,
-     fetch fuzzy window value,
-     check clicks table with ip address and date range
-     if match found,
-        found fuzzy match
-     else
+3. startig fuzzy match, <br />
+     fetch fuzzy window value, <br />
+     check clicks table with ip address and date range <br />
+     if match found, <br />
+        found fuzzy match <br />
+     else <br />
         grouped as ORGANIC install
         
      
