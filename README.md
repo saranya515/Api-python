@@ -10,8 +10,9 @@
         false : create aggregate table first and then insert/update data. <br />
         
 ##Clicks to install matching
-###On production for every installs , the developer api is called with, <br />
-    ip-address, user agent, installation date, device id. Here all the details are hardcoded.<br />
+###On production for every installs , the developer api is called with,
+    ip-address, user agent, installation date, device id. 
+    Here all the details are hardcoded.
 1. check registration table for device id, 
      if there device is already registered, skip entire process.
 2. else
